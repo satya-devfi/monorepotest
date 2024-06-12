@@ -1,0 +1,19 @@
+{
+  "name": "monorepotest",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:webapp": "npm start --prefix packages/webapp",
+    "dev:server": "node packages/server/src/index.js",
+    "dev": "concurrently \"npm run dev:webapp\" \"npm run dev:server\"",
+    "build:webapp": "npm run build --prefix packages/webapp",
+    "start:webapp": "npm run start --prefix packages/webapp",
+    "build": "npm run build:webapp",
+    "start": "concurrently \"npm run start:webapp\" \"npm run dev:server\""
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  }
+}
